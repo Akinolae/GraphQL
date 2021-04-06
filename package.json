@@ -1,0 +1,19 @@
+{
+  "name": "graphql",
+  "version": "1.0.0",
+  "description": "Serverless backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Akinolae/GraphQL.git"
+  },
+  "author": "Akinola",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Akinolae/GraphQL/issues"
+  },
+  "homepage": "https://github.com/Akinolae/GraphQL#readme"
+}
