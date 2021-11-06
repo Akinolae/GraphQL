@@ -4,29 +4,32 @@
 // });
 // const dynamodb = new AWS.DynamoDB.DocumentClient();
 // const dbTable = "transactions";
+const { getSingleTransaction, getAllTransactions } = require("./methods");
+const { extractApiError } = require("./utils");
+
 const paths = {
   tansaction: "/transaction",
   transactions: "/transactions",
 };
-const { getSingleTransaction, getAllTransactions } = require("./methods");
+
 exports.handler = async (event) => {
   console.log("Req: ", event);
-  let response;
+  let func;
 
   try {
     switch (event.resource) {
       case event.httpMethod === "GET" && event.path === paths.transactions:
-        response = getAllTransactions(200);
+        func = getAllTransactions;
         break;
       case event.httpMethod === "GET" && event.path === paths.transaction:
-        response = getSingleTransaction(200);
+        func = getSingleTransaction;
       default:
         break;
     }
 
-    return response;
+    return await func(event);
   } catch (error) {
-    throw error;
+    throw extractApiError(error);
   }
 };
 
