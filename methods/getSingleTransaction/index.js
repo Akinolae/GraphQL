@@ -14,4 +14,8 @@ const getSingleTransaction = (body) => {
   }
 };
 
-module.exports = { getSingleTransaction };
+const postTrx = async (event) => {
+  return event.body;
+};
+
+module.exports = { getSingleTransaction, postTrx };

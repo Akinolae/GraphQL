@@ -4,7 +4,11 @@
 // });
 // const dynamodb = new AWS.DynamoDB.DocumentClient();
 // const dbTable = "transactions";
-const { getSingleTransaction, getAllTransactions } = require("./methods");
+const {
+  getSingleTransaction,
+  getAllTransactions,
+  postTrx,
+} = require("./methods");
 const { extractApiError } = require("./utils");
 
 const paths = {
@@ -23,7 +27,9 @@ exports.handler = async (event) => {
         break;
       case event.httpMethod === "GET" && event.path === paths.transaction:
         func = getSingleTransaction;
-      default:
+        break;
+      case event.httpMethod === "POST" && event.path === paths.transaction:
+        func = postTrx;
         break;
     }
 

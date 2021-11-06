@@ -1,4 +1,4 @@
-const { getSingleTransaction } = require("./getSingleTransaction");
+const { getSingleTransaction, postTrx } = require("./getSingleTransaction");
 const { getAllTransactions } = require("./getAllTransactions");
 
-module.exports = { getAllTransactions, getSingleTransaction };
+module.exports = { getAllTransactions, getSingleTransaction, postTrx };
