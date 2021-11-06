@@ -1,11 +1,9 @@
-const getAllTransactions = (body) => {
+export const responseHandler = async (status, responseBody) => {
   return {
-    statusCode: resCode,
+    statusCode: status,
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(body),
   };
 };
-
-export { getAllTransactions };
