@@ -1,4 +1,4 @@
-export const responseHandler = async (status, responseBody) => {
+const responseHandler = async (status, responseBody) => {
   return {
     statusCode: status,
     headers: {
@@ -7,3 +7,5 @@ export const responseHandler = async (status, responseBody) => {
     body: JSON.stringify(body),
   };
 };
+
+module.exports = { responseHandler };
