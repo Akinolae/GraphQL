@@ -14,20 +14,20 @@ const paths = {
 
 exports.handler = async (event) => {
   console.log("Req: ", event);
-  let response;
+  let func;
 
   try {
     switch (event.resource) {
       case event.httpMethod === "GET" && event.path === paths.transactions:
-        response = getAllTransactions;
+        func = getAllTransactions;
         break;
       case event.httpMethod === "GET" && event.path === paths.transaction:
-        response = getSingleTransaction;
+        func = getSingleTransaction;
       default:
         break;
     }
 
-    return response(event);
+    return await func(event);
   } catch (error) {
     throw extractApiError(error);
   }
