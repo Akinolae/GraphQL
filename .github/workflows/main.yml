@@ -23,7 +23,8 @@ jobs:
       - name: zip
         uses: montudor/action-zip@v0.1.0
         with:
-          args: cd ./aws-lambda/ && zip -r ./bundle.zip ./
+          args: zip -qq -r bundle.zip dist node_modules package.json
+          working-directory: aws-lambda/
       - name: final deploy
         uses: appleboy/lambda-action@master
         with:
