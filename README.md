@@ -1,2 +1,3 @@
-# GraphQL
-graphql backend
+# aws-lambda-test functions
+
+serverless backend

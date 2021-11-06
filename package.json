@@ -1,0 +1,16 @@
+{
+  "name": "aws-lambda",
+  "version": "0.0.1",
+  "description": "aws-lambda-test functions",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Akinolae/aws-lambda.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Akinolae/aws-lambda/issues"
+  },
+  "homepage": "https://github.com/Akinolae/aws-lambda#readme"
+}
