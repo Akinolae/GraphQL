@@ -8,4 +8,4 @@ const getAllTransactions = (body) => {
   };
 };
 
-export { getAllTransactions };
+module.exports = { getAllTransactions };

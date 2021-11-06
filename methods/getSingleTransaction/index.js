@@ -14,4 +14,4 @@ const getSingleTransaction = (body) => {
   }
 };
 
-export { getSingleTransaction };
+module.exports = { getSingleTransaction };
