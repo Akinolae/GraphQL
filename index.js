@@ -4,11 +4,14 @@
 // });
 // const dynamodb = new AWS.DynamoDB.DocumentClient();
 // const dbTable = "transactions";
+const { getSingleTransaction, getAllTransactions } = require("./methods");
+const { extractApiError } = require("./utils");
+
 const paths = {
   tansaction: "/transaction",
   transactions: "/transactions",
 };
-const { getSingleTransaction, getAllTransactions } = require("./methods");
+
 exports.handler = async (event) => {
   console.log("Req: ", event);
   let response;
@@ -24,9 +27,9 @@ exports.handler = async (event) => {
         break;
     }
 
-    return response();
+    return response(event);
   } catch (error) {
-    throw error;
+    throw extractApiError(error);
   }
 };
 
