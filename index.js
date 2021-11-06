@@ -10,7 +10,7 @@ const paths = {
 };
 const { getSingleTransaction, getAllTransactions } = require("./methods");
 exports.handler = async (event) => {
-  console.log("Req: ", event);
+  // console.log("Req: ", event);
   let response;
 
   try {
