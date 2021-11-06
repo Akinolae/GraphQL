@@ -8,4 +8,4 @@ const getAllTransactions = (resCode, body) => {
   };
 };
 
-export { getAllTransactions };
+module.exports = { getAllTransactions };

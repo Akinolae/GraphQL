@@ -8,4 +8,4 @@ const getSingleTransaction = (resCode, body) => {
   };
 };
 
-export { getSingleTransaction };
+module.exports = { getSingleTransaction };

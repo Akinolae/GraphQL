@@ -16,15 +16,15 @@ exports.handler = async (event) => {
   try {
     switch (event.resource) {
       case event.httpMethod === "GET" && event.path === paths.transactions:
-        response = getAllTransactions(200);
+        response = getAllTransactions;
         break;
       case event.httpMethod === "GET" && event.path === paths.transaction:
-        response = getSingleTransaction(200);
+        response = getSingleTransaction;
       default:
         break;
     }
 
-    return response;
+    return await response();
   } catch (error) {
     throw error;
   }
