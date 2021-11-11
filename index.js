@@ -22,9 +22,9 @@ exports.handler = async (event, context, callback) => {
       case event.httpMethod === "GET" && event.path === paths.transactions:
         func = getAllTransactions;
         break;
-      case event.httpMethod === "GET" && event.path === paths.transaction:
-        func = getSingleTransaction;
-        break;
+      // case event.httpMethod === "GET" && event.path === paths.transaction:
+      //   func = getSingleTransaction;
+      //   break;
       case event.httpMethod === "POST" && event.path === paths.transaction:
         func = postTrx;
         break;
