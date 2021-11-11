@@ -9,8 +9,8 @@ const {
 const { extractApiError } = require("./utils");
 
 const paths = {
-  tansaction: "/transaction",
-  transactions: "/transactions",
+  tansaction: "/dev/transaction",
+  transactions: "/dev/transactions",
 };
 
 exports.handler = async (event, context, callback) => {
@@ -19,20 +19,22 @@ exports.handler = async (event, context, callback) => {
 
   try {
     switch (event.resource) {
-      case event.httpMethod === "GET" && event.path === paths.transactions:
-        func = getAllTransactions;
+      case event.path === paths.transactions:
+        getAllTransactions(event.body);
         break;
       // case event.httpMethod === "GET" && event.path === paths.transaction:
       //   func = getSingleTransaction;
       //   break;
-      case event.httpMethod === "POST" && event.path === paths.transaction:
-        func = postTrx;
+      case event.path === paths.transaction:
+        postTrx();
         break;
     }
 
-    return await func(event);
+    return await func(event, {
+      callback: () => {},
+    });
   } catch (error) {
-    console.log("Error: ", error);
+    console.log("Error: ", error, "...");
     // throw extractApiError(error);
   }
 };
