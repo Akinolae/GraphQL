@@ -4,7 +4,7 @@ const getSingleTransaction = (body) => {
   const { accountNumber, transaction_id } = body;
 
   if (!transaction_id || !accountNumber) {
-    return;
+    return responseHandler(400, "All fields are required");
   }
   try {
     // To test that the response is acturally being sent

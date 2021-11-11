@@ -1,9 +1,6 @@
-// const AWS = require("aws-sdk");
-// AWS.config.update({
-//   region: "us-east-1",
-// });
-// const dynamodb = new AWS.DynamoDB.DocumentClient();
-// const dbTable = "transactions";
+var AWS = require("aws-sdk");
+var dynamo = new AWS.DynamoDB.DocumentClient();
+
 const {
   getSingleTransaction,
   getAllTransactions,
@@ -16,8 +13,8 @@ const paths = {
   transactions: "/transactions",
 };
 
-exports.handler = async (event) => {
-  console.log("Req: ", event);
+exports.handler = async (event, context, callback) => {
+  console.log("Req: ", event.body);
   let func;
 
   try {
@@ -35,7 +32,8 @@ exports.handler = async (event) => {
 
     return await func(event);
   } catch (error) {
-    throw extractApiError(error);
+    console.log("Error: ", error);
+    // throw extractApiError(error);
   }
 };
 
