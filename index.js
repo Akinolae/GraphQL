@@ -7,32 +7,22 @@ const {
   postTrx,
 } = require("./methods");
 const { extractApiError } = require("./utils");
+const { responseHandler } = require("./utils/responseUtils");
 
 const paths = {
   tansaction: "/dev/transaction",
   transactions: "/dev/transactions",
 };
 
-exports.handler = async (event, context, callback) => {
+exports.handler = async (event, context) => {
   let func;
 
   try {
-    switch (event.resource) {
-      case event.path === paths.transactions:
-        func = getAllTransactions(event);
-      // case event.httpMethod === "GET" && event.path === paths.transaction:
-      //   func = getSingleTransaction;
-      //   break;
-      case event.path === paths.transaction:
-        func = postTrx();
-        break;
-    }
-
-    return func;
+    func = responseHandler(200, event.body);
   } catch (error) {
-    console.log("Error: ", error, "...");
-    // throw extractApiError(error);
+    throw error;
   }
+  return func;
 };
 
 // const buildResponse = (resCode, body) => {
