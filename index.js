@@ -14,7 +14,7 @@ const paths = {
 };
 
 exports.handler = async (event, context, callback) => {
-  console.log("Req: ", event.body);
+  console.log("Req: ", event.body.body);
   let func;
 
   try {
