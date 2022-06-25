@@ -1,14 +1,14 @@
 const { responseHandler } = require("../../utils");
 
-const getSingleTransaction = (body) => {
-  const { accountNumber, transaction_id } = body;
+const getSingleTransaction = (event) => {
+  const { email, password } = event.body;
 
-  if (!transaction_id || !accountNumber) {
+  if (!email || !password) {
     return responseHandler(400, "All fields are required");
   }
   try {
     // To test that the response is acturally being sent
-    return responseHandler(200, body);
+    return responseHandler(200, event.body);
   } catch (error) {
     return responseHandler(error.status, error);
   }

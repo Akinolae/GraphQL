@@ -18,7 +18,15 @@ exports.handler = async (event, context) => {
   let func;
 
   try {
-    func = responseHandler(200, event.body);
+    switch (event.resource) {
+      case paths.tansaction:
+        func = getSingleTransaction(event);
+        break;
+      case paths.transactions:
+        func = getAllTransactions(event);
+      default:
+        break;
+    }
   } catch (error) {
     throw error;
   }

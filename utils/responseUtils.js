@@ -4,7 +4,7 @@ const responseHandler = async (status, responseBody) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(responseBody),
+    body: responseBody,
   };
 };
 
